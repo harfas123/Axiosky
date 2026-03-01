@@ -1,0 +1,301 @@
+/* ========================================
+   AXIOSKY DESIGN SYSTEM - MAIN.CSS
+   Global styles, typography, colors, spacing
+   ======================================== */
+
+:root {
+  /* ===== COLORS ===== */
+  /* Background */
+  --bg-primary: #0A0A0B;
+  --bg-secondary: #0D0D0D;
+  --bg-tertiary: #161618;
+  --scroll-direction: down;
+  
+  /* Text */
+  --text-primary: #F9FAFB;
+  --text-secondary: #a8a8a8;
+  --text-muted: #64748B;
+  
+  /* Accent & Action */
+  --accent-primary: #3B82F6;
+  --accent-cobalt: #3B82F6;
+  --accent-blue-light: #007AFF;
+  --accent-blue-dark: #0051FF;
+  
+  /* Status & Semantic */
+  --success: #10B981;
+  --error: #EF4444;
+  --warning: #F59E0B;
+  --info: #0EA5E9;
+  
+  /* ===== TYPOGRAPHY ===== */
+  --font-heading: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-subheading: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  
+  /* Font Sizes */
+  --size-xs: 12px;
+  --size-sm: 14px;
+  --size-base: 16px;
+  --size-lg: 18px;
+  --size-xl: 20px;
+  --size-2xl: 24px;
+  --size-3xl: 32px;
+  --size-4xl: 40px;
+  --size-5xl: 48px;
+  
+  /* Font Weights */
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  
+  /* Line Height */
+  --leading-tight: 1.2;
+  --leading-snug: 1.4;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.8;
+  
+  /* ===== SPACING ===== */
+  --space-0: 0;
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-56: 56px;
+  --space-64: 64px;
+  
+  /* ===== BORDER RADIUS ===== */
+  --radius-sm: 4px;
+  --radius-base: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+  
+  /* ===== SHADOWS ===== */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-base: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04);
+  --shadow-glow: 0px 0px 20px rgba(59, 130, 246, 0.3);
+  
+  /* ===== ANIMATIONS ===== */
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 350ms;
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========================================
+   BASE / RESET
+   ======================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--size-base);
+  line-height: var(--leading-normal);
+  color: var(--text-primary);
+  background: #0a0a0a;
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/* ========================================
+   TYPOGRAPHY
+   ======================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  margin-bottom: var(--space-16);
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: var(--size-5xl);
+  letter-spacing: -0.5px;
+}
+
+h2 {
+  font-size: var(--size-4xl);
+  letter-spacing: -0.3px;
+}
+
+h3 {
+  font-size: var(--size-3xl);
+}
+
+h4 {
+  font-size: var(--size-2xl);
+}
+
+h5 {
+  font-size: var(--size-xl);
+}
+
+h6 {
+  font-size: var(--size-lg);
+}
+
+p {
+  margin-bottom: var(--space-16);
+  color: var(--text-primary);
+  line-height: var(--leading-normal);
+}
+
+p:last-child {
+    color: #a8a8a8;
+}
+
+a {
+  color: var(--accent-cobalt);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+
+
+strong {
+  font-weight: var(--weight-semibold);
+}
+
+/* ========================================
+   CONTAINERS & LAYOUT
+   ======================================== */
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-32);
+}
+
+section {
+  padding: var(--space-64) var(--space-32);
+}
+
+/* ========================================
+   UTILITIES
+   ======================================== */
+
+.section-title {
+  font-size: clamp(28px, 4vw, 40px);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-24);
+    text-align: center;
+    color: var(--color-surface);
+}
+
+.section-subtitle {
+  font-size: var(--size-lg);
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-32);
+  text-align: center;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.link-action {
+  color: var(--accent-cobalt);
+  text-decoration: none;
+  font-weight: var(--weight-semibold);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.link-action:hover {
+  color: var(--accent-blue-light);
+  transform: translateX(4px);
+}
+
+/* ========================================
+   SCROLLBAR (WEBKIT BROWSERS) - WATER FLOW
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, 
+    #A855F7 0%, 
+    #8B5CF6 20%, 
+    #6366F1 40%, 
+    #3B82F6 60%, 
+    #F3F4F6 80%, 
+    #A855F7 100%
+  );
+  border-radius: var(--radius-full);
+  background-size: 300% 300% !important;
+  position: relative;
+  overflow: hidden;
+  animation: waterFlowDown 3s linear infinite;
+  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+::-webkit-scrollbar-thumb::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  animation: waterShine 3s linear infinite;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  animation-duration: 1.5s;
+}
+
+/* Scroll direction responsive water flow */
+@keyframes waterFlowDown {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 0% 300%;
+  }
+}
+
+@keyframes waterShine {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+

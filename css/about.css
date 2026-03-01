@@ -1,0 +1,252 @@
+/* --- REPLACE ALL CONTENT IN about.css WITH THIS --- */
+
+/* 1. Global Override for Dark Theme */
+body {
+    background-color: #0a0a0a !important; /* Force dark background */
+    color: #ffffff;
+}
+
+/* 2. Scoped Theme Variables for the About Section */
+.axiosky-theme {
+    --bg-color: #0a0a0a;
+    --text-primary: #ffffff;
+    --text-secondary: #a1a1aa;
+    --border-color: #333333;
+    --accent-color: #ffffff;
+    
+    --font-heading: 'IBM Plex Sans', sans-serif;
+    --font-subheading: 'Public Sans', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    
+    --spacing-lg: 120px;
+    --spacing-md: 60px;
+}
+
+/* 3. Typography Overrides */
+.axiosky-theme h1, 
+.axiosky-theme h2 {
+    font-family: var(--font-heading);
+    color: var(--text-primary);
+    line-height: 1.1;
+}
+
+.axiosky-theme h3, 
+.axiosky-theme h4, 
+.axiosky-theme h5 {
+    font-family: var(--font-subheading);
+    color: var(--text-primary);
+}
+
+.axiosky-theme p {
+    font-family: var(--font-body);
+    font-weight: 300;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+}
+
+/* 4. Layout & Grid System */
+.blk-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.blk-section {
+    padding: var(--spacing-lg) 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.blk-section:last-child {
+    border-bottom: none;
+}
+
+.blk-grid {
+    display: grid;
+    gap: 40px;
+}
+
+.blk-grid-2 { grid-template-columns: 1fr 1fr; }
+.blk-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.blk-grid-sidebar { grid-template-columns: 1fr 2.5fr; }
+
+/* 5. Components */
+
+/* Hero */
+.blk-hero {
+    padding-top: 160px;
+    padding-bottom: 80px;
+}
+
+.blk-hero-label {
+    font-family: var(--font-subheading);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+    display: block;
+}
+
+.blk-hero h1 {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    max-width: 900px;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+.blk-hero-lead {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    max-width: 800px;
+    color: var(--text-secondary);
+    border-left: 2px solid var(--accent-color);
+    padding-left: 32px;
+}
+
+/* Section Titles */
+.blk-section-title {
+    font-size: 2rem;
+    margin-bottom: 24px;
+    padding-top: 16px;
+    border-top: 4px solid var(--text-primary);
+    display: inline-block;
+}
+
+/* Subtitles inside grids */
+.blk-sub-title {
+    margin-bottom: 10px;
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.blk-strong-header {
+    display: block; 
+    margin-bottom: 8px; 
+    font-family: var(--font-heading);
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+/* Cards */
+.blk-card {
+    padding: 32px;
+    border: 1px solid var(--border-color);
+    background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 100%);
+    transition: border-color 0.3s ease;
+}
+
+.blk-card:hover {
+    border-color: var(--text-secondary);
+}
+
+.blk-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+}
+
+/* Highlight Box */
+.blk-highlight-box {
+    color: var(--text-primary) !important;
+    border-left: 2px solid var(--border-color);
+    padding-left: 20px;
+}
+
+/* Lists */
+.blk-styled-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.blk-styled-list li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 16px;
+    color: var(--text-secondary);
+    font-family: var(--font-body);
+}
+
+.blk-styled-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 6px;
+    height: 6px;
+    background-color: var(--text-primary);
+}
+
+/* Metrics */
+.blk-metric-text {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    display: block;
+    font-weight: 600;
+}
+
+/* Contact */
+.blk-contact-item {
+    margin-bottom: 24px;
+}
+
+.blk-contact-item h4 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.blk-contact-email {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.3s ease;
+}
+
+.blk-contact-email:hover {
+    border-bottom: 1px solid var(--text-primary);
+}
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .blk-grid-sidebar, .blk-grid-3 {
+        grid-template-columns: 1fr;
+    }
+    .blk-section-title {
+        width: 100%;
+        border-top: 1px solid var(--border-color);
+    }
+}
+
+@media (max-width: 768px) {
+    .blk-grid-2 {
+        grid-template-columns: 1fr;
+    }
+    .blk-hero h1 {
+        font-size: 2.5rem;
+    }
+    .blk-hero-lead {
+        font-size: 1.2rem;
+        padding-left: 20px;
+    }
+}

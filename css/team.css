@@ -1,0 +1,360 @@
+/* ============================================
+   TEAM PAGE - AXIOSKY DARK THEME
+   ============================================ */
+
+/* --- Global Theme & Variables --- */
+body {
+    background-color: #0a0a0a !important;
+    color: #ffffff;
+}
+
+.axiosky-theme {
+    --bg-color: #0a0a0a;
+    --bg-dark: #0a0a0a;
+    --text-primary: #ffffff;
+    --text-secondary: #a1a1aa;
+    --border-color: #333333;
+    --accent-color: #ffffff;
+    
+    --font-heading: 'IBM Plex Sans', sans-serif;
+    --font-subheading: 'Public Sans', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    
+    --spacing-lg: 120px;
+    --spacing-md: 60px;
+    --spacing-sm: 30px;
+}
+
+/* --- Typography --- */
+.axiosky-theme h1, 
+.axiosky-theme h2 {
+    font-family: var(--font-heading);
+    color: var(--text-primary);
+    line-height: 1.1;
+}
+
+.axiosky-theme h3, 
+.axiosky-theme h4, 
+.axiosky-theme h5 {
+    font-family: var(--font-subheading);
+    color: var(--text-primary);
+}
+
+.axiosky-theme p {
+    font-family: var(--font-body);
+    font-weight: 300;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+}
+
+/* --- Layout --- */
+.blk-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.blk-section {
+    padding: var(--spacing-lg) 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.blk-section:last-child {
+    border-bottom: none;
+}
+
+.blk-section-dark {
+    background-color: var(--bg-dark);
+}
+
+.blk-grid {
+    display: grid;
+    gap: 40px;
+}
+
+.blk-grid-2 { 
+    grid-template-columns: 1fr 1fr; 
+}
+
+.blk-grid-3 { 
+    grid-template-columns: repeat(3, 1fr); 
+}
+
+.blk-grid-sidebar { 
+    grid-template-columns: 1fr 2.5fr; 
+}
+
+.blk-grid-gap-lg {
+    gap: 60px;
+}
+
+/* --- Hero Section --- */
+.blk-hero {
+    padding-top: 160px;
+    padding-bottom: 80px;
+}
+
+.blk-hero-label {
+    font-family: var(--font-subheading);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+    display: block;
+}
+
+.blk-hero h1 {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    max-width: 900px;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+.blk-hero-lead {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    max-width: 900px;
+    color: var(--text-secondary);
+    border-left: 2px solid var(--accent-color);
+    padding-left: 32px;
+}
+
+/* --- Section Titles --- */
+.blk-section-title {
+    font-size: 2rem;
+    margin-bottom: 24px;
+    padding-top: 16px;
+    border-top: 4px solid var(--text-primary);
+    display: inline-block;
+}
+
+.blk-section-title-no-border {
+    border-top: none;
+}
+
+.blk-section-margin-md {
+    margin-bottom: 40px;
+}
+
+.blk-section-margin-sm {
+    margin-bottom: 30px;
+}
+
+.blk-strong-header {
+    display: block; 
+    margin-bottom: 8px; 
+    font-family: var(--font-heading);
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.blk-metric-text {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    display: block;
+    font-weight: 600;
+}
+
+/* --- Cards --- */
+.blk-card {
+    padding: 32px;
+    border: 1px solid var(--border-color);
+    background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 100%);
+    transition: border-color 0.3s ease;
+}
+
+.blk-card:hover {
+    border-color: var(--text-secondary);
+}
+
+.blk-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+}
+
+/* --- Team Page Specific Components --- */
+
+/* Founder Cards */
+.founder-title {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.founder-role {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.founder-detail {
+    margin-bottom: 24px;
+    padding-left: 20px;
+    border-left: 1px solid var(--border-color);
+}
+
+.founder-detail:last-child {
+    margin-bottom: 0;
+}
+
+/* Careers Section */
+.blk-careers-list {
+    margin-top: 30px;
+}
+
+.blk-job-row {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.blk-job-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.blk-careers-cta {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* --- Utility Classes --- */
+.blk-text {
+    color: var(--text-secondary);
+}
+
+.blk-text-small {
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.blk-highlight-bar {
+    margin-bottom: 40px;
+    border-left: 2px solid var(--border-color);
+    padding-left: 20px;
+}
+
+/* Contact Items */
+.blk-contact-item {
+    margin-bottom: 24px;
+}
+
+.blk-contact-item h4 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.blk-contact-email {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.3s ease;
+}
+
+.blk-contact-email:hover {
+    border-bottom: 1px solid var(--text-primary);
+}
+
+/* --- Animations --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 1024px) {
+    .blk-grid-sidebar, 
+    .blk-grid-3 {
+        grid-template-columns: 1fr;
+    }
+    
+    .blk-section-title {
+        width: 100%;
+        border-top: 1px solid var(--border-color);
+    }
+    
+    .blk-grid-gap-lg {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .blk-grid-2 {
+        grid-template-columns: 1fr;
+    }
+    
+    .blk-hero {
+        padding-top: 120px;
+        padding-bottom: 60px;
+    }
+    
+    .blk-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .blk-hero-lead {
+        font-size: 1.2rem;
+        padding-left: 20px;
+    }
+    
+    .blk-section {
+        padding: var(--spacing-md) 0;
+    }
+    
+    .founder-title {
+        font-size: 1.3rem;
+    }
+    
+    .blk-contact-email {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .blk-hero {
+        padding-top: 100px;
+        padding-bottom: 40px;
+    }
+    
+    .blk-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .blk-hero-lead {
+        font-size: 1.1rem;
+    }
+    
+    .blk-section {
+        padding: 40px 0;
+    }
+    
+    .blk-card {
+        padding: 24px;
+    }
+    
+    .founder-detail {
+        padding-left: 16px;
+    }
+}
