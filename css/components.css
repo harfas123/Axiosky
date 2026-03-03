@@ -648,3 +648,53 @@
     .bl-cta-btn-primary,
     .bl-cta-btn-secondary { width: 100%; justify-content: center; }
 }
+
+
+/* --- New Mobile Menu Header --- */
+
+.snav-mobile {
+    padding-top: 0; /* Reset previous padding for the new header */
+}
+
+.snav-mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 0px;
+    background-color: #0A0A0B;
+}
+
+.logo-img-diamond {
+    height: 32px; /* Set height for the stylized logo */
+    width: auto;
+}
+
+.btn-request-pilot {
+    background-color: #FFFFFF; /* White button */
+    color: #0A0A0B !important; /* Dark text */
+    padding: 10px 24px;
+    border-radius: 999px; /* Fully rounded corners */
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 15px;
+}
+
+.btn-request-pilot:hover {
+    background-color: #e0e0e0;
+}
+
+.snav-mobile-close {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+}
+
+/* Ensure the X close button works */
+.hamburger.is-open,
+#closeMobile {
+    pointer-events: auto;
+}
