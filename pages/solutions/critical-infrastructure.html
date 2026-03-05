@@ -23,47 +23,97 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="navbar-container">
-            <div class="navbar-logo">
-                <a href="../../index.html">
-                    <img src="../../assets/images/logo.svg" alt="Axiosky Logo" class="logo-img">
-                </a>
-            </div>
-            <ul class="nav-menu">
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle">Platform</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="../../pages/platform/governor.html" class="dropdown-link">Governance</a></li>
-                        <li><a href="../../pages/platform/orchestrator.html" class="dropdown-link">Orchestration</a></li>
-                        <li><a href="../../pages/platform/policy-engine.html" class="dropdown-link">Policy Engine</a></li>
-                        <li><a href="../../pages/platform/security.html" class="dropdown-link">Security</a></li>
-                    </ul>
-                </li>
-                
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle">Solutions</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="../../pages/solutions/government.html" class="dropdown-link">Government</a></li>
-                        <li><a href="../../pages/solutions/critical-infrastructure.html" class="dropdown-link">Compliance-Critical Infrastructure</a></li>
-                    </ul>
-                </li>
-                
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle">Company</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="../../pages/company/about.html" class="dropdown-link">About</a></li>
-                        <li><a href="../../pages/company/team.html" class="dropdown-link">Team</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <a href="../../pages/request-pilot.html" class="nav-link nav-link-cta">Request Pilot</a>
+    <div class="navbar-logo">
+        <a href="../../index.html">
+            <img src="../../assets/images/logo.svg" alt="Axiosky Logo" class="logo-img">
+        </a>
+    </div>
+    
+    <!-- Main nav items - centered -->
+    <ul class="nav-menu">
+    <!-- Platform dropdown -->
+    <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle">Platform</a>
+        <ul class="dropdown-menu">
+            <li><a href="../../pages/platform/governor.html" class="dropdown-link">Governance</a></li>
+            <li><a href="../../pages/platform/orchestrator.html" class="dropdown-link">Orchestration</a></li>
+            <li><a href="../../pages/platform/policy-engine.html" class="dropdown-link">Policy Engine</a></li>
+            <li><a href="../../pages/platform/security.html" class="dropdown-link">Security</a></li>
+        </ul>
+    </li>
+    
+    <!-- Solutions dropdown -->
+    <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle">Solutions</a>
+        <ul class="dropdown-menu">
+            <li><a href="../../pages/solutions/government.html" class="dropdown-link">Government</a></li>
+            <li><a href="../../pages/solutions/critical-infrastructure.html" class="dropdown-link">Compliance-Critical Infrastructure</a></li>
+        </ul>
+    </li>
+    
+    <!-- Company dropdown -->
+    <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle">Company</a>
+        <ul class="dropdown-menu">
+            <li><a href="../../pages/company/about.html" class="dropdown-link">About Us</a></li>
+            <li><a href="../../pages/company/team.html" class="dropdown-link">Team</a></li>
+        </ul>
+    </li>
+</ul>
 
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
+    
+    <!-- CTA button - right side -->
+    <a href="../../pages/request-pilot.html" class="nav-link nav-link-cta">Request Pilot</a>
+    
+    <!-- Hamburger (mobile only) -->
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+  </div>
     </nav>
+
+    <!-- Mobile Fullscreen Overlay -->
+    <div class="snav-mobile" id="snavMobile">
+        <ul class="snav-mobile-list">
+
+<li class="snav-mobile-item">
+    <button class="snav-mobile-btn">Platform
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="snav-mobile-drop">
+        <a href="../../pages/platform/governor.html" class="snav-mobile-link">Governance</a>
+        <a href="../../pages/platform/orchestrator.html" class="snav-mobile-link">Orchestration</a>
+        <a href="../../pages/platform/policy-engine.html" class="snav-mobile-link">Policy Engine</a>
+        <a href="../../pages/platform/security.html" class="snav-mobile-link">Security</a>
+    </div>
+</li>
+            <li class="snav-mobile-item">
+                <button class="snav-mobile-btn">Solutions
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="snav-mobile-drop">
+                    <a href="../../pages/solutions/government.html" class="snav-mobile-link">Government</a>
+                    <a href="../../pages/solutions/critical-infrastructure.html" class="snav-mobile-link">Compliance-Critical</a>
+                </div>
+            </li>
+            <li class="snav-mobile-item">
+                <button class="snav-mobile-btn">Company
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="snav-mobile-drop">
+                    <a href="../../pages/company/about.html" class="snav-mobile-link">About Us</a>
+                    <a href="../../pages/company/team.html" class="snav-mobile-link">Team</a>
+                </div>
+            </li>
+            <div class="snav-mobile-header">
+                <a href="../../pages/request-pilot.html" class="btn btn-request-pilot">Request Pilot</a>
+            </div>
+        </ul>
+    </div>
+
+    <section class="homepagecontent">
 
     <!-- MAIN CONTENT -->
     <main class="axiosky-theme">
@@ -203,41 +253,11 @@
                                         </div>
                                         <p class="btn-desc">Unusual pattern detected. Orchestrator routes to human for manual sign-off.</p>
                                     </button>
-                                </div>
-                            </div>
+                                            </div>
+            </div>
+        </div>
+        <div class="infra-col-visuals">
 
-                            <section class="guarantees-section">
-                        <h2 class="guarantees-title">Three Guarantees</h2>
-                        
-                        <div class="guarantee-list">
-                            <div class="guarantee-item">
-                                <i data-lucide="lock" class="icon-md"></i>
-                                <div>
-                                    <h4>Mandatory Enforcement</h4>
-                                    <p>No agent reaches protected systems without Governor approval. Architectural, not configurational.</p>
-                                </div>
-                            </div>
-
-                            <div class="guarantee-item">
-                                <i data-lucide="code" class="icon-md"></i>
-                                <div>
-                                    <h4>Policy-as-Code</h4>
-                                    <p>Regulations are versioned, testable code. Every release is cryptographically signed with full lineage.</p>
-                                </div>
-                            </div>
-
-                            <div class="guarantee-item">
-                                <i data-lucide="database" class="icon-md"></i>
-                                <div>
-                                    <h4>Immutable Decisions</h4>
-                                    <p>Logged with policy version and rationale. Same inputs + same policy = same outcome, always.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                        </div>
-
-                        <div class="infra-col-visuals">
                             
                             <div class="flow-canvas">
                                 <div class="flow-layout">
@@ -318,12 +338,39 @@
 
                         <div class="terminal-footer">
                             <span class="footer-left">Decision replayable years later with identical outcome.</span>
-                            <span class="footer-right" id="sig-id">SIG_ID: --</span>
-                        </div>
-                    </div>
+                                            <span class="footer-right" id="sig-id">SIGID --</span>
+            </div>
+        </div>
+    </div>
 
-                        </div>
-                    </div>
+    <section class="guarantees-section">
+        <h2 class="guarantees-title">Three Guarantees</h2>
+        <div class="guarantee-list">
+            <div class="guarantee-item">
+                <i data-lucide="lock" class="icon-md"></i>
+                <div>
+                    <h4>Mandatory Enforcement</h4>
+                    <p>No agent reaches protected systems without Governor approval. Architectural, not configurational.</p>
+                </div>
+            </div>
+            <div class="guarantee-item">
+                <i data-lucide="code" class="icon-md"></i>
+                <div>
+                    <h4>Policy-as-Code</h4>
+                    <p>Regulations are versioned, testable code. Every release is cryptographically signed with full lineage.</p>
+                </div>
+            </div>
+            <div class="guarantee-item">
+                <i data-lucide="database" class="icon-md"></i>
+                <div>
+                    <h4>Immutable Decisions</h4>
+                    <p>Logged with policy version and rationale. Same inputs + same policy = same outcome, always.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
                 </div>
             </div>
         </section>
@@ -495,7 +542,7 @@
         <p class="bl-cta-label">Axiosky</p>
         <h2 class="bl-cta-heading">The Standard for<br>AI Governance.</h2>
         <div class="bl-cta-actions">
-            <a href="/request-demo" class="btn btn-primary">Request a Demo</a>
+            <a href="../../pages/request-pilot.html" class="btn btn-primary">Request a Demo</a>
         </div>
     </div>
 </section>

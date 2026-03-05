@@ -99,6 +99,11 @@
 /* ========================================
    BASE / RESET
    ======================================== */
+* {
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    box-shadow: none;
+}
 
 * {
   margin: 0;

@@ -940,6 +940,8 @@
 
     /* Local Variables for Dark Theme */
 
+    padding-top: 0px !important;
+
     --hero-bg: #0a0a0a;
 
     --hero-text: #e0e0e0;
@@ -974,7 +976,7 @@
 
     margin: 0 auto;
 
-    padding: 0 40px;
+    padding: 0 0px;
 
 }
 
@@ -1485,7 +1487,6 @@ canvas#sim-canvas {
 }
 
 .of-function-row {
-    display: grid;
     grid-template-columns: 240px 1fr;
     gap: 80px;
     padding: 60px 0;
@@ -1582,6 +1583,9 @@ canvas#sim-canvas {
     margin-top: 20px;
 }
 
+.of-code-container span {
+    font-size: 12px;
+}
 .of-code-keyword { color: #569cd6; }
 .of-code-comment { color: #6a9955; }
 .of-code-string { color: #ce9178; }
@@ -1849,11 +1853,19 @@ canvas#sim-canvas {
     }
 
     .ascii-items {
-        display: flex;
-        gap: 10px;
-        color: #666;
-        flex-wrap: wrap;
-    }
+display: flex;
+gap: 10px;
+color: #666;
+flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+.ascii-items {
+gap: 16px;
+row-gap: 14px;
+}
+}
+
 
     .ascii-connector {
         width: 100%;
@@ -2156,6 +2168,7 @@ canvas#sim-canvas {
 .orch-spec-cta-link:hover { border-bottom-color: var(--orch-spec-text-main); }
 
 .orch-spec-reveal {
+        padding-top: 0px !important;
     padding-bottom: 0px !important;
     opacity: 100;
     transform: translateY(20px);
@@ -2318,7 +2331,10 @@ canvas#sim-canvas {
     margin: 20px 0;
 }
 
-.comp-schematic-text { white-space: pre; line-height: 1.2; }
+.comp-schematic-text { white-space: pre-wrap; line-height: 1.2; }
+.comp-schematic-text { padding: 0px 0px 0 20px;
+    white-space: pre-wrap;
+    line-height: 1.2; }
 .comp-description { font-size: 13px; color: var(--comp-text-secondary); line-height: 1.5; }
 .comp-description strong { color: #fff; font-weight: 400; }
 
@@ -2362,7 +2378,10 @@ html,
 body {
     background-color: #0a0a0a !important;
     color: #ffffff !important;
+    overflow-x: hidden !important;
+    max-width: 100% !important;
 }
+
 
 section {
     background-color: #0a0a0a !important;
@@ -2370,7 +2389,7 @@ section {
 
 /* 1) Hero heading = 40px */
 #hero .hero-h1 {
-    font-size: 40px !important;
+    font-size: 56px !important;
     line-height: 1.1;
 }
 
@@ -2498,7 +2517,7 @@ section,
     margin: 0 auto !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
-    padding-top: 0 !important;
+    padding-top: 30px !important;
     padding-bottom: 0 !important;
 }
 

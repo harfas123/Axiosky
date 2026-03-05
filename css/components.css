@@ -65,7 +65,8 @@
 }
 
 .nav-link-cta {
-  min-width: 130px;
+  text-decoration:  none;
+  width: 140px;
   height: 40px;
   color: #343a40 !important; /* black text */
   padding: 5px 10px;
@@ -90,9 +91,9 @@
 }
 
 .nav-link-cta:hover {
-  border-radius: 5px;
-  padding-right: 24px;
-  padding-left: 8px;
+    border-radius: 5px;
+    padding-right: 28px;
+    padding-left: 4px;
   background-color: #FFFFFF;
   color: #343a40 !important; /* stays black */
   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.2);
@@ -512,6 +513,7 @@
 
 
 .footer-bottom p {
+  text-align: center !important;
   margin-top: 13px;
   font-size: var(--size-sm);
   color: var(--text-secondary);

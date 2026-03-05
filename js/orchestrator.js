@@ -417,14 +417,35 @@ document.addEventListener('DOMContentLoaded', () => {
                         this.checkTime = 15;
                         this.color = colors.resource;
                     } else if (this.state === 'RESOURCE_LOCK') {
-                        const targets = [0.15, 0.38, 0.62, 0.85];
+                        const targets = (w < 600) ? [0.125, 0.375, 0.625, 0.875] : [0.15, 0.38, 0.62, 0.85];
                         const tColors = [colors.database, colors.api, colors.cloud, colors.internal];
                         const idx = Math.floor(Math.random() * 4);
                         this.targetX = w * targets[idx];
                         this.color = tColors[idx];
                         this.targetY = execY;
-                        this.state = 'TO_EXECUTION';
+                        // Calculate the exact angle on the orbit that points toward the target box
+                        this.exitAngle = Math.atan2(this.targetY - orchY, this.targetX - orchX);
+                        this.state = 'ALIGN_ORBIT';
                     }
+                }
+            } else if (this.state === 'ALIGN_ORBIT') {
+                // Keep orbiting but steer toward exitAngle
+                this.orbitRadius += (orbitTarget - this.orbitRadius) * 0.1;
+                // Normalize angle difference to [-PI, PI] and rotate toward exit
+                let diff = this.exitAngle - this.orbitAngle;
+                while (diff > Math.PI)  diff -= Math.PI * 2;
+                while (diff < -Math.PI) diff += Math.PI * 2;
+                const step = 0.06;
+                if (Math.abs(diff) < step) {
+                    // Snap to exit angle and launch
+                    this.orbitAngle = this.exitAngle;
+                    this.x = orchX + Math.cos(this.orbitAngle) * this.orbitRadius;
+                    this.y = orchY + Math.sin(this.orbitAngle) * this.orbitRadius;
+                    this.state = 'TO_EXECUTION';
+                } else {
+                    this.orbitAngle += Math.sign(diff) * step;
+                    this.x = orchX + Math.cos(this.orbitAngle) * this.orbitRadius;
+                    this.y = orchY + Math.sin(this.orbitAngle) * this.orbitRadius;
                 }
             } else if (this.state === 'TO_EXECUTION') {
                 if (this.moveTo(this.targetX, this.targetY)) {
@@ -482,7 +503,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const agentY    = Math.max(50, h * 0.14);
         const execY     = h * 0.78;
-        const execPositions = [0.15, 0.38, 0.62, 0.85];
+        const execPositions = isMobile()
+            ? [0.125, 0.375, 0.625, 0.875]
+            : [0.15, 0.38, 0.62, 0.85];
 
         // Minimum-clamped font sizes — never tiny on mobile
         const agentFont  = Math.max(10, 11 * scale);
@@ -490,9 +513,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const orchSub    = Math.max(10, 11 * scale);
         const boxFont    = Math.max(10, 11 * scale);
 
-        // Minimum-clamped box dimensions
-        const boxW = Math.max(72, 72 * scale);
-        const boxH = Math.max(30, 30 * scale);
+        // Mobile: slot-based width for even spacing; Desktop: original fixed sizing
+        const slotW = w / 4;
+        const boxW = isMobile() ? slotW * 0.72 : Math.max(72, 72 * scale);
+        const boxH = isMobile() ? Math.max(30, 32 * scale) : Math.max(30, 30 * scale);
+
 
         const spacing = w / (agentCount + 1);
 

@@ -1074,6 +1074,18 @@ body {
     border-left: 1px solid var(--pe-border);
     border-top: 1px solid var(--pe-border);
 }
+
+@media (max-width: 380px) {
+    .pe-principles-grid {
+        display: flow;
+    }
+}
+
+@media (max-width: 480px) {
+    .pe-principles-grid {
+        display: flow;
+    }
+}
 .pe-principle-card {
     padding: 56px;
     border-right: 1px solid var(--pe-border);
@@ -1559,6 +1571,18 @@ body {
     border-left: 1px solid var(--pe-border);
     border-top: 1px solid var(--pe-border);
 }
+
+@media (max-width: 380px){
+    .pe-pillars {
+        display:flow;
+    }
+}
+@media (max-width: 480px){
+    .pe-pillars {
+        display:flow;
+    }
+}
+
 .pe-pillar {
     padding: 52px;
     border-right: 1px solid var(--pe-border);
@@ -1589,7 +1613,9 @@ body {
     font-weight: 300;
     margin-bottom: 24px;
 }
-.pe-pillar-table { border: 1px solid var(--pe-border); }
+.pe-pillar-table { border: 1px solid var(--pe-border); overflow-x: auto; display: block; -webkit-overflow-scrolling: touch; }
+.pe-ptable-header,
+.pe-ptable-row { min-width: 380px; }
 .pe-ptable-header {
     display: grid;
     grid-template-columns: 1fr 1.5fr 0.8fr 0.7fr;
@@ -1940,14 +1966,15 @@ html, body {
 
 /* 4. Compare table — scrolls inside its own box */
 .pe-compare-table {
-    overflow-x: hidden;
     display: block !important;
     max-width: 100% !important;
 }
 
-.pe-compare-header,
-.pe-compare-row {
-    min-width: 600px !important;
+@media (min-width: 769px) {
+  .pe-compare-header,
+  .pe-compare-row {
+    min-width: 600px;
+  }
 }
 
 /* 5. Translation + example — NO overflow:hidden, just constrain width */
@@ -1983,17 +2010,13 @@ html, body {
 
 /* 7. Mobile */
 @media (max-width: 768px) {
-    .pe-compare-header,
-    .pe-compare-row {
-        min-width: 480px !important;
-    }
-
-    .pe-code-block,
-    .pe-code-example {
-        font-size: 11px !important;
-        padding: 16px !important;
-    }
+.pe-code-block,
+.pe-code-example {
+font-size: 11px !important;
+padding: 16px !important;
 }
+}
+
 
 /* ── Translation col code box: no scroll, wrap text ── */
 .pe-translation-col .pe-code-block,
@@ -2009,4 +2032,94 @@ html, body {
     width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
+}
+
+.pe-code-block span{
+    font-size: 12px;
+}
+
+@media (max-width: 768px) {
+
+  .pe-compare-header {
+    display: none !important;
+  }
+
+  .pe-compare-row {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    padding: 24px 20px !important;
+    border-bottom: 1px solid var(--pe-border) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .pe-compare-name {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    padding-right: 0 !important;
+    margin-bottom: 4px !important;
+    white-space: normal !important;          /* ← was missing */
+    overflow-wrap: break-word !important;    /* ← was missing */
+  }
+
+  .pe-compare-cell {
+    font-size: 13px !important;
+    padding-right: 0 !important;
+    line-height: 1.6 !important;
+    white-space: normal !important;          /* ← was missing */
+    overflow-wrap: break-word !important;    /* ← was missing */
+    word-break: break-word !important;       /* ← was missing */
+    max-width: 100% !important;             /* ← was missing */
+  }
+
+  .pe-compare-row .pe-compare-cell:nth-child(2)::before {
+    content: "STRENGTHS";
+    display: block;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--pe-text-muted);
+    margin-bottom: 4px;
+  }
+
+  .pe-compare-row .pe-compare-cell:nth-child(3)::before {
+    content: "LIMITATIONS";
+    display: block;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--pe-text-muted);
+    margin-bottom: 4px;
+  }
+
+  .pe-compare-verdict {
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+    padding-top: 8px !important;
+    border-top: 1px solid var(--pe-border) !important;
+    margin-top: 4px !important;
+    white-space: normal !important;          /* ← add this too */
+    overflow-wrap: break-word !important;
+  }
+
+  .pe-compare-table {
+    overflow: hidden !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .pe-compare-note {
+    font-size: 12px !important;
+    padding: 16px !important;
+    margin-top: 0 !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .pe-compare-row {
+    padding: 20px 16px !important;
+  }
 }

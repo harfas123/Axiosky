@@ -23,60 +23,108 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="navbar-container">
-            <div class="navbar-logo">
-                <a href="../index.html">
-                    <img src="../assets/images/logo.svg" alt="Axiosky Logo" class="logo-img">
-                </a>
-            </div>
-            <ul class="nav-menu">
-                <!-- Platform dropdown -->
+    <div class="navbar-logo">
+        <a href="../index.html">
+            <img src="../assets/images/logo.svg" alt="Axiosky Logo" class="logo-img">
+        </a>
+    </div>
+    
+    <!-- Main nav items - centered -->
+    <ul class="nav-menu">
+    <!-- Platform dropdown -->
     <li class="nav-item dropdown">
         <a href="#" class="nav-link dropdown-toggle">Platform</a>
         <ul class="dropdown-menu">
-            <li><a href="platform/governor.html" class="dropdown-link">Governance</a></li>
-            <li><a href="platform/orchestrator.html" class="dropdown-link">Orchestration</a></li>
-            <li><a href="platform/policy-engine.html" class="dropdown-link">Policy Engine</a></li>
-            <li><a href="platform/security.html" class="dropdown-link">Security</a></li>
+            <li><a href="../../pages/platform/governor.html" class="dropdown-link">Governance</a></li>
+            <li><a href="../../pages/platform/orchestrator.html" class="dropdown-link">Orchestration</a></li>
+            <li><a href="../../pages/platform/policy-engine.html" class="dropdown-link">Policy Engine</a></li>
+            <li><a href="../../pages/platform/security.html" class="dropdown-link">Security</a></li>
         </ul>
     </li>
-                
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle">Solutions</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="solutions/government.html" class="dropdown-link">Government</a></li>
-                        <li><a href="solutions/critical-infrastructure.html" class="dropdown-link">Compliance-Critical Infrastructure</a></li>
-                    </ul>
-                </li>
-                
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle">Company</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="company/about.html" class="dropdown-link">About</a></li>
-                        <li><a href="company/team.html" class="dropdown-link">Team</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <a href="request-pilot.html" class="nav-link nav-link-cta">Request Pilot</a>
+    
+    <!-- Solutions dropdown -->
+    <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle">Solutions</a>
+        <ul class="dropdown-menu">
+            <li><a href="../../pages/solutions/government.html" class="dropdown-link">Government</a></li>
+            <li><a href="../../pages/solutions/critical-infrastructure.html" class="dropdown-link">Compliance-Critical Infrastructure</a></li>
+        </ul>
+    </li>
+    
+    <!-- Company dropdown -->
+    <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle">Company</a>
+        <ul class="dropdown-menu">
+            <li><a href="../../pages/company/about.html" class="dropdown-link">About Us</a></li>
+            <li><a href="../../pages/company/team.html" class="dropdown-link">Team</a></li>
+        </ul>
+    </li>
+</ul>
 
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
+    
+    <!-- CTA button - right side -->
+    <a href="../../pages/request-pilot.html" class="nav-link nav-link-cta">Request Pilot</a>
+    
+    <!-- Hamburger (mobile only) -->
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+  </div>
     </nav>
+
+    <!-- Mobile Fullscreen Overlay -->
+    <div class="snav-mobile" id="snavMobile">
+        <ul class="snav-mobile-list">
+
+<li class="snav-mobile-item">
+    <button class="snav-mobile-btn">Platform
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="snav-mobile-drop">
+        <a href="../../pages/platform/governor.html" class="snav-mobile-link">Governance</a>
+        <a href="../../pages/platform/orchestrator.html" class="snav-mobile-link">Orchestration</a>
+        <a href="../../pages/platform/policy-engine.html" class="snav-mobile-link">Policy Engine</a>
+        <a href="../../pages/platform/security.html" class="snav-mobile-link">Security</a>
+    </div>
+</li>
+            <li class="snav-mobile-item">
+                <button class="snav-mobile-btn">Solutions
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="snav-mobile-drop">
+                    <a href="../../pages/solutions/government.html" class="snav-mobile-link">Government</a>
+                    <a href="../../pages/solutions/critical-infrastructure.html" class="snav-mobile-link">Compliance-Critical</a>
+                </div>
+            </li>
+            <li class="snav-mobile-item">
+                <button class="snav-mobile-btn">Company
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="snav-mobile-drop">
+                    <a href="../../pages/company/about.html" class="snav-mobile-link">About Us</a>
+                    <a href="../../pages/company/team.html" class="snav-mobile-link">Team</a>
+                </div>
+            </li>
+            <div class="snav-mobile-header">
+                <a href="../../pages/request-pilot.html" class="btn btn-request-pilot">Request Pilot</a>
+            </div>
+        </ul>
+    </div>
+
+    <section class="homepagecontent">
 
 
 
     <!-- FORM SECTION -->
     <section class="form-section">
         <div class="form-container">
-            <h1 class="form-title">Request a Controlled Pilot</h1>  
-            <h2>Share Your Details</h2>
-            <p class="form-subtitle">All fields required unless marked optional. Your information is handled under NDA.</p>
+            <h1 class="form-title">Request a Controlled Pilot</h1> 
+             <!-- class="form-subtitle">All fields required unless marked optional. Your information is handled under NDA. -->
             
             <!-- ✅ UPDATED: Added name, method, and data-netlify attributes -->
-            <form id="pilotForm" name="pilot-request" method="POST" data-netlify="true">
+            <form id="pilotForm" name="pilot-request" method="POST" action="thank-you.html" data-netlify="true">
                 <!-- ✅ ADDED: Hidden field for Netlify -->
                 <input type="hidden" name="form-name" value="pilot-request" />
                 
@@ -117,7 +165,7 @@
                     <div class="form-group">
                         <label for="country">Country *</label>
                         <select id="country" name="country" required>
-                            <option value="">Select Country</option>
+                            <option value="" disabled selected>Select Country</option>
                             <option value="IND">India</option>
                             <option value="UAE">United Arab Emirates</option>
                             <option value="QAT">Qatar</option>
@@ -132,7 +180,7 @@
                     <div class="form-group">
                         <label for="sector">Sector/Industry *</label>
                         <select id="sector" name="sector" required>
-                            <option value="">Select Sector</option>
+                            <option value="" disabled selected>Select Sector</option>
                             <option value="government">Government</option>
                             <option value="financial">Financial Services</option>
                             <option value="healthcare">Healthcare</option>
@@ -151,7 +199,7 @@
                     <div class="form-group">
                         <label for="orgSize">Organization Size (optional)</label>
                         <select id="orgSize" name="orgSize">
-                            <option value="">Select Size</option>
+                            <option value="" disabled selected>Select Size</option>
                             <option value="under100">Under 100 employees</option>
                             <option value="100-500">100-500 employees</option>
                             <option value="500-1000">500-1,000 employees</option>
@@ -204,7 +252,7 @@
                     <div class="form-group">
                         <label for="timeline">Timeline for Pilot/Deployment *</label>
                         <select id="timeline" name="timeline" required>
-                            <option value="">Select Timeline</option>
+                            <option value="" disabled selected>Select Timeline</option>
                             <option value="next-month">Next 30 days</option>
                             <option value="next-quarter">Next 90 days</option>
                             <option value="next-6months">Next 6 months</option>
@@ -298,7 +346,6 @@
     <!-- Scripts -->
     <script src="../js/main.js"></script>
     <script src="../js/navigation.js"></script>
-    <!-- ✅ UPDATED: Commented out to let Netlify handle form submission -->
-    <!-- <script src="../js/request-pilot.js"></script> -->
+   <script src="../js/request-pilot.js"></script>
 </body>
 </html>

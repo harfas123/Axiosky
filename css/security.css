@@ -133,6 +133,12 @@
             padding: 0;
         }
 
+        html,
+body {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+}
+
         *,
         *::before,
         *::after {
@@ -992,14 +998,17 @@
     padding: 0;
     margin: 0 0 16px;
 }
-.sec-list > li {
-    position: relative;
-    padding-left: 16px;
-    margin-bottom: 9px;
-    font-size: 14px;
-    color: var(--sec-text-2);
-    line-height: 1.6;
+.sec-list li {
+position: relative;
+padding-left: 16px;
+margin-bottom: 9px;
+font-size: 14px;
+color: var(--sec-text-2);
+line-height: 1.6;
+overflow-wrap: break-word;
+word-break: break-word;
 }
+
 .sec-list > li::before {
     content: "·";
     position: absolute;
@@ -1017,18 +1026,29 @@
 
 /* ── Code block ───────────────────────────────────────────────── */
 .sec-code-block {
-    display: block;
-    background-color: var(--sec-bg);
-    border: 1px solid var(--sec-border);
-    padding: 16px 18px;
-    font-family: 'IBM Plex Mono', ui-monospace, monospace;
-    font-size: 12px;
-    line-height: 1.7;
-    color: var(--sec-text-2);
-    overflow-x: auto;
-    margin: 14px 0 20px;
-    white-space: pre;
+display: block;
+background-color: var(--sec-bg);
+border: 1px solid var(--sec-border);
+padding: 16px 18px;
+font-family: 'IBM Plex Mono', ui-monospace, monospace;
+font-size: 12px;
+line-height: 1.7;
+color: var(--sec-text-2);
+overflow-x: auto;
+margin: 14px 0 20px;
+white-space: pre;
+max-width: 100%;
+box-sizing: border-box;
 }
+
+@media (max-width: 768px) {
+  .sec-code-block {
+    white-space: pre-wrap;
+    word-break: break-all;
+    font-size: 11px;
+  }
+}
+
 
 /* ── Table ────────────────────────────────────────────────────── */
 .sec-table {
@@ -1368,6 +1388,12 @@
     padding: var(--space-32) var(--space-20);
 }
 
+@media (max-width: 480px) {
+    .section-faq {
+        border-top: 0px;
+    }
+
+}
 .sec-faq-border-t {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
