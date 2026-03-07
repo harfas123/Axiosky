@@ -1,3 +1,16 @@
+/* ===== PREVENT HORIZONTAL OVERFLOW ===== */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100%;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+img, video, canvas, svg {
+  max-width: 100%;
+}
+
+
 :root {
             --color-white: rgba(255, 255, 255, 1);
             --color-black: rgba(0, 0, 0, 1);
@@ -1387,42 +1400,303 @@ p {
     /* Latency box */
     .latency-box { padding: 24px 20px !important; }
     .latency-value { font-size: 40px !important; }
-}
 
-/* ── Very small phones ────────────────────────────────────── */
-@media (max-width: 380px) {
-    section { padding: 48px 16px !important; }
-    #hero.dark-theme-hero { padding: 88px 16px 60px !important; }
-    #hero .hero-h1 { font-size: 26px !important; }
-    .section-title { font-size: 22px !important; }
+.hero-canvas-container {
+display: block !important;
+width: 100% !important;
+height: 300px !important;
+margin-top: 40px !important;
 }
-
-@media (max-width: 768px) {
-    .hero-canvas-container {
-        display: block !important;
-        width: 100% !important;
-        height: 300px !important;
-        margin-top: 40px !important;
-    }
-}
-
 
 /* ── Problem Section: compact tracks + narrower container ── */
 .section-problem-governance .track {
-    height: 80px !important;
+height: 80px !important;
 }
 
 .section-problem-governance .section-container {
-    max-width: 680px !important;
+max-width: 1440px !important;
 }
 
 /* ── Track label font size fix ── */
 .section-problem-governance .space-y-3 > div:first-child {
-    padding-top: 5px;
-    font-size: 10px !important;
+padding-top: 5px;
+font-size: 10px !important;
 }
 
 .section-problem-governance .space-y-3 > div:first-child span {
-    padding-top: 5px;
+padding-top: 5px;
+font-size: 10px !important;
+}
+
+
+/* ── Very small phones ────────────────────────────────────── */
+@media (max-width: 380px) {
+    section { padding: 48px 16px !important; }
+    .homepagecontent section {
+        padding: 0px 16px !important;
+    }
+    #hero.dark-theme-hero { padding: 0px 16px 60px !important; }
+    #hero .hero-h1 { font-size: clamp(2.5rem, 5vw, 4rem) !important; }
+    .section-title { font-size: clamp(32px, 5vw, 48px) !important; }
+}
+
+/* ── 380px small phones ─────────────────────────────────── */
+@media (max-width: 380px) {
+
+  html, body {
+    overflow-x: hidden !important;
+  }
+
+  section {
+    padding: 48px 16px !important;
+  }
+
+  #hero.dark-theme-hero {
+    padding: 0px 16px 60px !important;
+  }
+
+  .hero-container {
+    padding: 0 !important;
+  }
+
+  #hero .hero-h1 {
+    font-size: 34px !important;
+    margin-bottom: 16px !important;
+  }
+
+  #hero .hero-lead,
+  #hero .hero-secondlead {
+    font-size: 15px !important;
+  }
+
+  .hero-canvas-container {
+    height: 220px !important;
+  }
+
+  .section-title {
+    font-size: 26px !important;
+  }
+
+  .section-subtitle {
+    font-size: 14px !important;
+  }
+
+  .capability-card,
+  .tech-card,
+  .step {
+    padding: 20px 16px !important;
+  }
+
+  .capability-title,
+  .tech-title {
+    font-size: 15px !important;
+  }
+
+  .capability-desc,
+  .tech-desc {
+    font-size: 13px !important;
+  }
+
+  .scenario-step {
+    padding: 16px !important;
+  }
+
+  .scenario-code {
+    font-size: 11px !important;
+    padding: 12px !important;
+  }
+
+  .terminal-body {
+    height: 260px !important;
+    padding: 16px !important;
+  }
+
+  .integration-box {
+    padding: 16px !important;
+  }
+
+  .latency-value {
+    font-size: 36px !important;
+  }
+
+  .final-ctas a,
+  .final-ctas button {
+    padding: 12px 16px !important;
+    font-size: 13px !important;
+  }
+
+  .arch-node {
+    padding: 20px 16px !important;
+  }
+
+  .section-problem-governance .track {
+    height: 80px !important;
+  }
+
+  .section-problem-governance .space-y-3 > div:first-child,
+  .section-problem-governance .space-y-3 > div:first-child span {
     font-size: 10px !important;
+  }
+}
+
+
+/* ── 330px extra small phones ───────────────────────────── */
+@media (max-width: 330px) {
+
+  html, body {
+    overflow-x: hidden !important;
+  }
+
+  section {
+    padding: 36px 12px !important;
+  }
+
+  #hero.dark-theme-hero {
+    padding: 0px 12px 48px !important;
+  }
+
+  #hero .hero-h1 {
+    font-size: 26px !important;
+    margin-bottom: 12px !important;
+  }
+
+  #hero .hero-lead,
+  #hero .hero-secondlead {
+    font-size: 13px !important;
+  }
+
+  #hero .hero-eyebrow {
+    font-size: 9px !important;
+    padding: 3px 8px !important;
+  }
+
+  .hero-canvas-container {
+    height: 180px !important;
+  }
+
+  .hero-bullets li {
+    font-size: 12px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .hero-ctas a,
+  .hero-ctas button {
+    padding: 10px 12px !important;
+    font-size: 12px !important;
+  }
+
+  .section-title {
+    font-size: 20px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .section-subtitle {
+    font-size: 13px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .section-container {
+    padding: 32px 0 0 0 !important;
+  }
+
+  .capability-card,
+  .tech-card,
+  .step {
+    padding: 16px 12px !important;
+  }
+
+  .capability-title,
+  .tech-title {
+    font-size: 14px !important;
+  }
+
+  .capability-desc,
+  .tech-desc,
+  .step-content p {
+    font-size: 12px !important;
+  }
+
+  .step-content h3 {
+    font-size: 13px !important;
+  }
+
+  .step-number {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 13px !important;
+  }
+
+  .scenario-step {
+    padding: 12px !important;
+  }
+
+  .scenario-code {
+    font-size: 10px !important;
+    padding: 10px !important;
+  }
+
+  .scenario-title {
+    font-size: 14px !important;
+  }
+
+  .terminal-body {
+    height: 220px !important;
+    padding: 12px !important;
+    font-size: 11px !important;
+  }
+
+  .terminal-header {
+    padding: 8px 12px !important;
+    font-size: 11px !important;
+  }
+
+  .integration-box {
+    padding: 12px !important;
+  }
+
+  .integration-box h3 {
+    font-size: 13px !important;
+  }
+
+  .integration-box p {
+    font-size: 12px !important;
+  }
+
+  .arch-node {
+    padding: 16px 12px !important;
+  }
+
+  .arch-node-content {
+    font-size: 13px !important;
+  }
+
+  .arch-node-sub {
+    font-size: 11px !important;
+  }
+
+  .latency-value {
+    font-size: 28px !important;
+  }
+
+  .final-ctas a,
+  .final-ctas button {
+    padding: 10px 12px !important;
+    font-size: 12px !important;
+  }
+
+  .section-problem-governance .track {
+    height: 64px !important;
+  }
+}
+
+/* ── Simple scroll fade-in ── */
+.gov-fade {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+.gov-fade.gov-visible {
+    opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+    .gov-fade { opacity: 1; }
 }

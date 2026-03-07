@@ -540,3 +540,59 @@ const faqs = [
         }
 
         window.onload = renderFAQs;
+/* ── Simple scroll fade-in ── */
+(function () {
+    function init() {
+        // Tag every meaningful content block
+        const selectors = [
+            '.section-title',
+            '.section-subtitle',
+            '.tech-card',
+            '.arch-node',
+            '.definition-card',
+            '.faq-item',
+            '.terminal',
+            '.bl-cta-inner',
+            '.section-capabilities .capabilities-grid',
+            '.section-problem-governance .space-y-3',
+            '.section-integration .arch-visual-horizontal'
+        ];
+
+        selectors.forEach(function(sel) {
+            document.querySelectorAll(sel).forEach(function(el) {
+                el.classList.add('gov-fade');
+            });
+        });
+
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('gov-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.gov-fade').forEach(function(el) {
+            observer.observe(el);
+        });
+
+        // Also watch for FAQ items added dynamically
+        var faqContainer = document.getElementById('faq-container');
+        if (faqContainer) {
+            var mutObs = new MutationObserver(function() {
+                faqContainer.querySelectorAll('.faq-item:not(.gov-fade)').forEach(function(el) {
+                    el.classList.add('gov-fade');
+                    observer.observe(el);
+                });
+            });
+            mutObs.observe(faqContainer, { childList: true });
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();

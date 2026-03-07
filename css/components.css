@@ -472,6 +472,12 @@
   color: var(--accent-white);
 }
 
+@media (max-width:380px) {
+  .footer-legal a {
+    font-size: 14px;
+  }
+}
+
 .footer-legal span {
   color: var(--text-muted);
 }
@@ -611,7 +617,8 @@
     border-top: 1px solid #1a1a1a;
 }
 .bl-cta-inner {
-    max-width: 800px;
+    padding: 2pc 0;
+    max-width: 1440px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;

@@ -400,3 +400,10 @@ color: var(--color-gray-300);
 .legal-content p {
     text-align: left !important;
 }
+
+@media (max-width: 330px) {
+    .sidebar-nav a {
+        padding: var(--space-12) var(--space-20);
+        font-size: 14px;
+    }
+}

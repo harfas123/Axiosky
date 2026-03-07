@@ -35,10 +35,10 @@
     <li class="nav-item dropdown">
         <a href="#" class="nav-link dropdown-toggle">Platform</a>
         <ul class="dropdown-menu">
-            <li><a href="../../pages/platform/governor.html" class="dropdown-link">Governance</a></li>
-            <li><a href="../../pages/platform/orchestrator.html" class="dropdown-link">Orchestration</a></li>
-            <li><a href="../../pages/platform/policy-engine.html" class="dropdown-link">Policy Engine</a></li>
-            <li><a href="../../pages/platform/security.html" class="dropdown-link">Security</a></li>
+            <li><a href="../pages/platform/governor.html" class="dropdown-link">Governance</a></li>
+            <li><a href="../pages/platform/orchestrator.html" class="dropdown-link">Orchestration</a></li>
+            <li><a href="../pages/platform/policy-engine.html" class="dropdown-link">Policy Engine</a></li>
+            <li><a href="../pages/platform/security.html" class="dropdown-link">Security</a></li>
         </ul>
     </li>
     
@@ -46,8 +46,8 @@
     <li class="nav-item dropdown">
         <a href="#" class="nav-link dropdown-toggle">Solutions</a>
         <ul class="dropdown-menu">
-            <li><a href="../../pages/solutions/government.html" class="dropdown-link">Government</a></li>
-            <li><a href="../../pages/solutions/critical-infrastructure.html" class="dropdown-link">Compliance-Critical Infrastructure</a></li>
+            <li><a href="../pages/solutions/government.html" class="dropdown-link">Government</a></li>
+            <li><a href="../pages/solutions/critical-infrastructure.html" class="dropdown-link">Compliance-Critical Infrastructure</a></li>
         </ul>
     </li>
     
@@ -55,15 +55,15 @@
     <li class="nav-item dropdown">
         <a href="#" class="nav-link dropdown-toggle">Company</a>
         <ul class="dropdown-menu">
-            <li><a href="../../pages/company/about.html" class="dropdown-link">About Us</a></li>
-            <li><a href="../../pages/company/team.html" class="dropdown-link">Team</a></li>
+            <li><a href="../pages/company/about.html" class="dropdown-link">About Us</a></li>
+            <li><a href="../pages/company/team.html" class="dropdown-link">Team</a></li>
         </ul>
     </li>
 </ul>
 
     
     <!-- CTA button - right side -->
-    <a href="../../pages/request-pilot.html" class="nav-link nav-link-cta">Request Pilot</a>
+    <a href="../pages/request-pilot.html" class="nav-link nav-link-cta">Request Pilot</a>
     
     <!-- Hamburger (mobile only) -->
     <div class="hamburger" id="hamburger">
@@ -83,10 +83,10 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
     </button>
     <div class="snav-mobile-drop">
-        <a href="../../pages/platform/governor.html" class="snav-mobile-link">Governance</a>
-        <a href="../../pages/platform/orchestrator.html" class="snav-mobile-link">Orchestration</a>
-        <a href="../../pages/platform/policy-engine.html" class="snav-mobile-link">Policy Engine</a>
-        <a href="../../pages/platform/security.html" class="snav-mobile-link">Security</a>
+        <a href="../pages/platform/governor.html" class="snav-mobile-link">Governance</a>
+        <a href="../pages/platform/orchestrator.html" class="snav-mobile-link">Orchestration</a>
+        <a href="../pages/platform/policy-engine.html" class="snav-mobile-link">Policy Engine</a>
+        <a href="../pages/platform/security.html" class="snav-mobile-link">Security</a>
     </div>
 </li>
             <li class="snav-mobile-item">
@@ -94,8 +94,8 @@
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
                 </button>
                 <div class="snav-mobile-drop">
-                    <a href="../../pages/solutions/government.html" class="snav-mobile-link">Government</a>
-                    <a href="../../pages/solutions/critical-infrastructure.html" class="snav-mobile-link">Compliance-Critical</a>
+                    <a href="../pages/solutions/government.html" class="snav-mobile-link">Government</a>
+                    <a href="../pages/solutions/critical-infrastructure.html" class="snav-mobile-link">Compliance-Critical</a>
                 </div>
             </li>
             <li class="snav-mobile-item">
@@ -103,12 +103,12 @@
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
                 </button>
                 <div class="snav-mobile-drop">
-                    <a href="../../pages/company/about.html" class="snav-mobile-link">About Us</a>
-                    <a href="../../pages/company/team.html" class="snav-mobile-link">Team</a>
+                    <a href="../pages/company/about.html" class="snav-mobile-link">About Us</a>
+                    <a href="../pages/company/team.html" class="snav-mobile-link">Team</a>
                 </div>
             </li>
             <div class="snav-mobile-header">
-                <a href="../../pages/request-pilot.html" class="btn btn-request-pilot">Request Pilot</a>
+                <a href="../pages/request-pilot.html" class="btn btn-request-pilot">Request Pilot</a>
             </div>
         </ul>
     </div>
@@ -176,6 +176,9 @@
                             <option value="CA">Canada</option>
                             <option value="other">Other</option>
                         </select>
+                        <div id="countryOtherWrap" class="other-reveal" style="display:none;">
+                            <input type="text" id="countryOther" name="countryOther" placeholder="Enter your country" autocomplete="country-name">
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="sector">Sector/Industry *</label>
@@ -191,6 +194,9 @@
                             <option value="insurance">Insurance</option>
                             <option value="other">Other Regulated</option>
                         </select>
+                        <div id="sectorOtherWrap" class="other-reveal" style="display:none;">
+                            <input type="text" id="sectorOther" name="sectorOther" placeholder="Please specify your sector">
+                        </div>
                     </div>
                 </div>
 
@@ -234,6 +240,9 @@
                             <div class="checkbox-item">
                                 <input type="checkbox" id="help5" name="help" value="other-help">
                                 <label for="help5">Other (specify below)</label>
+                            </div>
+                            <div id="helpOtherWrap" class="other-reveal" style="display:none;">
+                                <textarea id="helpOther" name="helpOther" placeholder="Please describe what you need help with..." rows="3"></textarea>
                             </div>
                         </div>
                     </div>

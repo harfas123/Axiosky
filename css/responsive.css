@@ -1,3 +1,22 @@
+/* ===== PREVENT HORIZONTAL OVERFLOW (all screens) ===== */
+
+/* ===== PREVENT HORIZONTAL OVERFLOW (all screens) ===== */
+
+html,
+body {
+  overflow-x: hidden !important;
+  max-width: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+img, video, canvas, svg, table {
+  max-width: 100%;
+}
+
+
 /* ========================================
    AXIOSKY RESPONSIVE - RESPONSIVE.CSS
    Mobile, tablet, desktop breakpoints
@@ -36,6 +55,9 @@
 .hero {
     padding: 50px 0 160px;
 }
+
+
+
 
 @media (max-width: 768px) {
     .hero {
@@ -316,7 +338,7 @@
   }
 
   .footer-links a {
-    font-size: var(--size-md);
+    font-size: 13px;
   }
 
   .diagram-caption {
@@ -393,7 +415,7 @@
 
 @media (max-width: 768px) {
 
-  * {font-size: 16px;}
+  * {font-size: 12px;}
 
 
     /* ── Base: left-align everything, fix padding ── */
@@ -642,7 +664,7 @@
     }
     .bl-cta-heading {
         text-align: center !important;
-        font-size: 40px !important;
+        font-size: 35px !important;
         margin-bottom: 32px !important;
     }
     .bl-cta-actions {
@@ -662,8 +684,8 @@
     .nav-menu.is-open {
         position: fixed;
         inset: 0;                 /* top:0; right:0; bottom:0; left:0 */
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
+min-height: 100vh;
         background: #050505;
         z-index: 999;
         border-radius: 0;
@@ -793,4 +815,12 @@
 .hamburger.is-open span:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
 }
+
+
+@media (max-width:380px) {
+      .footer-container {
+    gap: 2rem;
+  }
+}
+
 

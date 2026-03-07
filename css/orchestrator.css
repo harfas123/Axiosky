@@ -1473,7 +1473,7 @@ canvas#sim-canvas {
 
 .of-spec-title {
     font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 48px;
+    font-size: clamp(32px, 5vw, 48px);
     font-weight: 500;
     margin-bottom: 30px;
     letter-spacing: -0.02em;
@@ -2244,7 +2244,7 @@ row-gap: 14px;
 }
 
 .comp-main-title {
-    font-size: 32px;
+    font-size: clamp(32px, 5vw, 48px);
     font-weight: 500;
     margin-top: 8px;
 }
@@ -2332,7 +2332,7 @@ row-gap: 14px;
 }
 
 .comp-schematic-text { white-space: pre-wrap; line-height: 1.2; }
-.comp-schematic-text { padding: 0px 0px 0 20px;
+.comp-schematic-text { padding: 20px 20px 20px 20px;
     white-space: pre-wrap;
     line-height: 1.2; }
 .comp-description { font-size: 13px; color: var(--comp-text-secondary); line-height: 1.5; }
@@ -2376,11 +2376,27 @@ ORCHESTRATOR — TYPOGRAPHY + DARK OVERRIDE (MATCH GOVERNOR)
 
 html,
 body {
-    background-color: #0a0a0a !important;
-    color: #ffffff !important;
-    overflow-x: hidden !important;
-    max-width: 100% !important;
+  background-color: #0a0a0a !important;
+  color: #ffffff !important;
+  overflow-x: hidden !important;
+  max-width: 100% !important;
 }
+
+/* Prevent media elements from overflowing */
+img, video, canvas, svg, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ASCII / pre blocks contained */
+.arch-ascii-diagram,
+pre {
+  overflow-x: auto;
+  white-space: pre;
+  max-width: 100%;
+  word-break: normal;
+}
+
 
 
 section {
@@ -2484,7 +2500,7 @@ section {
 /* Extra-small phones */
 @media (max-width: 380px) {
     #hero .hero-h1 {
-        font-size: 30px !important;
+        font-size: clamp(2.5rem, 5vw, 4rem) !important;
     }
 }
 
@@ -2616,17 +2632,464 @@ section,
     }
 }
 
-/* ── Very small phones ───────────────────────────────── */
+/* ── 380px small phones ─────────────────────────────────── */
 @media (max-width: 380px) {
-    section,
-    .acw-section-root,
-    .of-section-root,
-    .arch-container,
-    .comp-section-wrapper,
-    .orch-spec-container {
-        padding-top: 48px !important;
-        padding-bottom: 48px !important;
-        padding-left: 16px !important;
-        padding-right: 16px !important;
-    }
+
+  html, body { overflow-x: hidden !important; }
+
+  /* Section padding */
+  section,
+  .acw-section-root,
+  .of-section-root,
+  .arch-container,
+  .comp-section-wrapper,
+  .orch-spec-container,
+  .section-faq {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Hero */
+  #hero.dark-theme-hero {
+    padding: 0px 16px 60px !important;
+  }
+
+  .hero-container {
+    padding: 0 !important;
+  }
+
+  #hero .hero-h1 {
+    font-size: 32px !important;
+    margin-bottom: 16px !important;
+  }
+
+  #hero .hero-lead,
+  #hero .hero-secondlead {
+    font-size: 15px !important;
+  }
+
+  #hero .hero-eyebrow {
+    font-size: 10px !important;
+    padding: 3px 10px !important;
+  }
+
+  .hero-canvas-container {
+    height: 220px !important;
+  }
+
+  .hero-bullets li {
+    font-size: 13px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .hero-btn {
+    padding: 12px 24px !important;
+    font-size: 13px !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  .hero-btn-secondary {
+    margin-left: 0 !important;
+    margin-top: 12px !important;
+  }
+
+  /* Section titles */
+  .section-title {
+    font-size: 22px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .section-subtitle {
+    font-size: 14px !important;
+    margin-bottom: 20px !important;
+  }
+
+  /* Orchestrator split layout */
+  .orchestrator-layout {
+    flex-direction: column !important;
+  }
+
+  #left-panel {
+    width: 100% !important;
+    padding: 0 16px 32px !important;
+  }
+
+  #arch-container {
+    width: 100% !important;
+    height: 50vh !important;
+    min-height: 240px !important;
+  }
+
+  /* ACW section */
+  .acw-container {
+    padding: 40px 0 !important;
+  }
+
+  .acw-header-layout {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .acw-card {
+    padding: 24px 16px !important;
+  }
+
+  .acw-card-title {
+    font-size: 18px !important;
+  }
+
+  .acw-footer {
+    padding: 40px 16px !important;
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  /* OF functional spec */
+  .of-layout-container {
+    padding: 40px 0 !important;
+  }
+
+  .of-spec-header {
+    margin-bottom: 40px !important;
+  }
+
+  .of-spec-title {
+    font-size: 24px !important;
+  }
+
+  .of-function-row {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    padding: 28px 0 !important;
+  }
+
+  .of-implementation-list {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .of-code-container {
+    font-size: 11px !important;
+    padding: 16px !important;
+  }
+
+  /* Architecture section */
+  .arch-title {
+    font-size: 28px !important;
+  }
+
+  .arch-principle-item {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    padding: 24px 16px !important;
+  }
+
+  .arch-meta-side {
+    position: static !important;
+  }
+
+  .arch-detail-block {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .arch-diagram-section {
+    padding: 20px 12px !important;
+    margin-bottom: 32px !important;
+  }
+
+  .arch-ascii-diagram {
+    font-size: 11px !important;
+    padding: 12px !important;
+  }
+
+  /* Comparison section */
+  .comp-section-wrapper {
+    padding: 40px 16px !important;
+  }
+
+  .comp-header-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+    margin-bottom: 32px !important;
+  }
+
+  .comp-main-title {
+    font-size: 24px !important;
+  }
+
+  .comp-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .comp-card {
+    height: auto !important;
+    min-height: 320px !important;
+    padding: 24px 16px !important;
+  }
+
+  .comp-card-content {
+    position: relative !important;
+    inset: unset !important;
+  }
+
+  .comp-toggle-btn {
+    padding: 8px 16px !important;
+    font-size: 11px !important;
+  }
+
+  /* Spec section */
+  .orch-spec-container {
+    padding: 40px 0 !important;
+  }
+
+  .orch-spec-title {
+    font-size: 22px !important;
+  }
+
+  .orch-spec-data-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .orch-spec-full-width {
+    grid-column: span 1 !important;
+  }
+
+  .orch-spec-data-cell {
+    height: auto !important;
+    padding: 20px !important;
+  }
+
+  .orch-spec-metric-value {
+    font-size: 22px !important;
+  }
+
+  .orch-spec-comp-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+
+  .orch-spec-faq-item {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    padding: 24px 0 !important;
+  }
+
+  .orch-spec-cta-section {
+    padding: 40px 16px !important;
+  }
+
+  .orch-spec-cta-links {
+    flex-direction: column !important;
+    gap: 16px !important;
+    align-items: center !important;
+  }
+
+  .orch-spec-rule-box {
+    padding: 20px 16px !important;
+    font-size: 11px !important;
+  }
+
+  /* ASCII diagram containers */
+  .ascii-container {
+    max-width: 100% !important;
+    font-size: 11px !important;
+  }
+
+  .ascii-box {
+    padding: 10px 14px !important;
+  }
+}
+
+/* ── 330px extra-small phones ───────────────────────────── */
+@media (max-width: 330px) {
+
+  html, body { overflow-x: hidden !important; }
+
+  section,
+  .acw-section-root,
+  .of-section-root,
+  .arch-container,
+  .comp-section-wrapper,
+  .orch-spec-container,
+  .section-faq {
+    padding-top: 36px !important;
+    padding-bottom: 36px !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  /* Hero */
+  #hero.dark-theme-hero {
+    padding: 0px 12px 48px !important;
+  }
+
+  #hero .hero-h1 {
+    font-size: 26px !important;
+    margin-bottom: 12px !important;
+  }
+
+  #hero .hero-lead,
+  #hero .hero-secondlead {
+    font-size: 13px !important;
+  }
+
+  #hero .hero-eyebrow {
+    font-size: 9px !important;
+    padding: 3px 8px !important;
+    letter-spacing: 0.1em !important;
+  }
+
+  .hero-canvas-container {
+    height: 220px !important;
+  }
+
+  .hero-bullets li {
+    font-size: 12px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .hero-btn {
+    padding: 10px 16px !important;
+    font-size: 12px !important;
+  }
+
+  /* Section headings */
+  .section-title {
+    font-size: 18px !important;
+  }
+
+  .section-subtitle {
+    font-size: 13px !important;
+  }
+
+  /* ACW */
+  .acw-main-heading {
+    font-size: 22px !important;
+  }
+
+  .acw-card {
+    padding: 20px 12px !important;
+  }
+
+  .acw-card-title {
+    font-size: 16px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .acw-footer {
+    padding: 32px 12px !important;
+  }
+
+  /* OF spec */
+  .of-spec-title {
+    font-size: 20px !important;
+  }
+
+  .of-spec-lead {
+    font-size: 15px !important;
+  }
+
+  .of-function-name {
+    font-size: 16px !important;
+  }
+
+  .of-function-description {
+    font-size: 14px !important;
+  }
+
+  .of-code-container {
+    font-size: 10px !important;
+    padding: 12px !important;
+  }
+
+  /* Architecture */
+  .arch-title {
+    font-size: 22px !important;
+  }
+
+  .arch-lead {
+    font-size: 15px !important;
+  }
+
+  .arch-principle-name {
+    font-size: 18px !important;
+  }
+
+  .arch-summary-text {
+    font-size: 15px !important;
+  }
+
+  .arch-ascii-diagram {
+    font-size: 10px !important;
+    padding: 10px 8px !important;
+  }
+
+  /* Comparison */
+  .comp-main-title {
+    font-size: 20px !important;
+  }
+
+  .comp-card {
+    min-height: 280px !important;
+    padding: 20px 12px !important;
+  }
+
+  .comp-toggle-btn {
+    padding: 6px 12px !important;
+    font-size: 10px !important;
+  }
+
+  /* Spec section */
+  .orch-spec-title {
+    font-size: 18px !important;
+  }
+
+  .orch-spec-metric-value {
+    font-size: 18px !important;
+  }
+
+  .orch-spec-metric-label {
+    font-size: 10px !important;
+  }
+
+  .orch-spec-data-cell {
+    padding: 16px !important;
+  }
+
+  .orch-spec-cta-section {
+    padding: 32px 12px !important;
+  }
+
+  .orch-spec-rule-box {
+    font-size: 10px !important;
+    padding: 16px 12px !important;
+  }
+
+  .orch-spec-faq-question {
+    font-size: 14px !important;
+  }
+
+  .orch-spec-faq-answer {
+    font-size: 13px !important;
+  }
+
+  /* ASCII */
+  .ascii-container {
+    font-size: 10px !important;
+  }
+
+  .ascii-box {
+    padding: 8px 10px !important;
+  }
+
+  #arch-container {
+    height: 44vh !important;
+    min-height: 200px !important;
+  }
 }

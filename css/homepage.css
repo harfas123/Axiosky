@@ -92,7 +92,7 @@
 .container-wide {
     max-width: 1440px;
     margin: 0 auto;
-    padding: 0 80px;
+    padding: 0 80px 0 25px;
     }
 
 .section-intro {
@@ -233,6 +233,7 @@ font-size: 18px;
 
 /* APPROACH SECTION */
 .approach-section {
+    padding-left: 1px;
     padding-bottom: 50px;
     background-color: #0a0a0a;
 }
@@ -852,7 +853,7 @@ font-size: 18px;
   /* Footer */
   .footer-container {
     grid-template-columns: 1fr;
-    gap: var(--space-16);
+    gap: 2rem;
   }
 
   .footer {
@@ -860,11 +861,11 @@ font-size: 18px;
   }
 
   .footer-title {
-    font-size: var(--size-md);
+    font-size: 15px;
   }
 
   .footer-links a {
-    font-size: var(--size-md);
+    font-size: 14px;
   }
 
   .diagram-caption {
@@ -895,5 +896,208 @@ font-size: 18px;
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 3%;
+  }
+}
+
+/* ===== EXTRA SMALL (320px and down) ===== */
+
+@media (max-width: 330px) {
+
+  html, body {
+    overflow-x: hidden !important;
+  }
+
+  .homepagecontents {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  .homepagecontents section {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+    padding-top: 44px !important;
+    padding-bottom: 44px !important;
+  }
+
+  .container-wide {
+    padding: 44px 10px 0px 10px !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  .navbar-container {
+    padding: 4px 12px !important;
+  }
+
+  .logo-img {
+    height: 48px !important;
+  }
+
+  .hero {
+    padding: 24px 14px !important;
+  }
+
+  .hero-title {
+    font-size: 28px !important;
+    letter-spacing: -0.5px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .hero-description {
+    font-size: 15px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .hero-detail {
+    font-size: 14px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .hero-ctas .btn,
+  .hero-ctas a {
+    padding: 12px 14px !important;
+    font-size: 13px !important;
+  }
+
+  .section-intro h2,
+  .section-who h2 {
+    font-size: 20px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .section-intro p {
+    font-size: 14px !important;
+  }
+
+  .problem-grid {
+    padding: 12px !important;
+    gap: 24px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .problem-grid h3 {
+    font-size: 17px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .detail-row p {
+    font-size: 13px !important;
+  }
+
+  .insight-box {
+    padding: 14px !important;
+  }
+
+  .insight-box p {
+    font-size: 14px !important;
+  }
+
+  .workflow-container h3 {
+    font-size: 18px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .workflow-step h4 {
+    font-size: 15px !important;
+  }
+
+  .workflow-item > p {
+    font-size: 14px !important;
+  }
+
+  .principle-box {
+    margin: 24px 0 0 !important;
+    padding: 14px !important;
+  }
+
+  .principle-box p {
+    font-size: 13px !important;
+  }
+
+  .audience-block p {
+    font-size: 14px !important;
+  }
+
+  .feature-card {
+    padding: 20px 14px 16px 0px !important;
+  }
+
+  .feature-card .feature-title {
+    font-size: 20px !important;
+  }
+
+  .diff-card {
+    padding: 20px 14px !important;
+  }
+
+  .diff-card h3 {
+    font-size: 18px !important;
+    margin-bottom: 18px !important;
+    padding-bottom: 12px !important;
+  }
+
+  .diff-block p,
+  .diff-block li {
+    font-size: 14px !important;
+  }
+
+  .bottom-line-box {
+    padding: 16px !important;
+  }
+
+  .bottom-line-box p {
+    font-size: 14px !important;
+  }
+
+  .trust-card {
+    padding: 20px 14px !important;
+  }
+
+  .trust-card h3 {
+    font-size: 18px !important;
+  }
+
+  .trust-intro {
+    font-size: 14px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .trust-feature p,
+  .trust-step-content p {
+    font-size: 12px !important;
+  }
+
+  .bl-cta {
+    padding: 56px 14px !important;
+  }
+
+  .bl-cta-heading {
+    font-size: 26px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .footer {
+    padding: 24px 14px 14px !important;
+  }
+
+  .footer-container {
+    gap: 1.5rem !important;
+  }
+
+  .footer-title {
+    font-size: 13px !important;
+  }
+
+  .footer-links a {
+    font-size: 12px !important;
+  }
+
+  .footer-legal {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+
+  .footer-legal a {
+    font-size: 11px !important;
   }
 }

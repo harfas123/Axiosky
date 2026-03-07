@@ -292,7 +292,6 @@ body {
     
     .blk-section-title {
         width: 100%;
-        border-top: 1px solid var(--border-color);
     }
     
     .blk-grid-gap-lg {
@@ -357,4 +356,12 @@ body {
     .founder-detail {
         padding-left: 16px;
     }
+}
+
+@media (max-width: 330px) {
+    .blk-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 3px;
+}
 }

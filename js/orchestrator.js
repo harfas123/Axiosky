@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     this.wait = 10;
                 }
             } else if (this.target === 'GOV') {
-                tx = govX; ty = govY;
+                tx = govX; ty = govY + 20;
                 if (dist(this.x, this.y, tx, ty) < 5) {
                     this.target = 'BACK_ORCH';
                     this.color = colors.gov;
@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         ctx.beginPath();
         ctx.moveTo(cx, cy);
-        ctx.lineTo(w - 60, cy);
+        ctx.lineTo(w - 80, cy);
         ctx.stroke();
 
         agents.forEach(a => {

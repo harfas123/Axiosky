@@ -226,28 +226,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const REG_LABELS = ['GDPR', 'SOX', 'FAR', 'HIPAA'];
 
     function getLayout(w, h) {
-        const cx = w * 0.36;
-        const cy = h * 0.48;
-        const govX = w * 0.62;
-        const govY = cy;
-        const regX = w * 0.08;
-        const regSpan = h * 0.52;
+        const isMobile = w < 480;  // 330, 380, 480 all use same layout
+
+        const cx     = w * (isMobile ? 0.36 : 0.36);
+        const cy     = h * (isMobile ? 0.48 : 0.48);
+        const govX   = w * (isMobile ? 0.62 : 0.62);
+        const govY   = cy;
+
+        const regX    = w * 0.08;
+        const regSpan = h * (isMobile ? 0.50 : 0.52);
         const regStart = cy - regSpan / 2;
         const regs = REG_LABELS.map((l, i) => ({
             x: regX,
             y: regStart + i * (regSpan / (REG_LABELS.length - 1)),
             label: l,
         }));
-        const outX = w * 0.88;
+
+        const outX    = w * 0.88;
+        const engineR = isMobile ? 38 : 44;
+        const govR    = isMobile ? 28 : 34;
+        const vSpread = isMobile ? 0.22 : 0.24;
+
         return {
-            cx, cy, govX, govY, regs,
+            cx, cy, govX, govY, regs, engineR, govR,
             outcomes: [
-                { x: outX, y: cy - h * 0.24, label: 'APPROVE',  color: C.approve  },
-                { x: outX, y: cy,             label: 'BLOCK',    color: C.block    },
-                { x: outX, y: cy + h * 0.24,  label: 'ESCALATE', color: C.escalate },
+                { x: outX, y: cy - h * vSpread, label: 'APPROVE',  color: C.approve  },
+                { x: outX, y: cy,               label: 'BLOCK',    color: C.block    },
+                { x: outX, y: cy + h * vSpread, label: 'ESCALATE', color: C.escalate },
             ],
             auditX: w * 0.60,
-            auditY: h * 0.88,
+            auditY: h * (w < 480 ? 0.78 : 0.88),
         };
     }
 
@@ -268,14 +276,20 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.strokeStyle = borderColor;
         ctx.lineWidth   = 1.5;
         ctx.stroke();
+
+        // Scale font to fit inside circle: diameter = 2r, leave 8px padding each side
+        const maxTextW  = r * 2 - 10;
+        // Pick font size so label fits: start at 10px, shrink if needed
+        let fontSize = Math.min(10, Math.max(6, Math.floor(maxTextW / (label.length * 0.62))));
         ctx.fillStyle = borderColor;
-        ctx.font      = `600 ${r > 35 ? 10 : 9}px "IBM Plex Sans", sans-serif`;
+        ctx.font      = `600 ${fontSize}px "IBM Plex Sans", sans-serif`;
         ctx.textAlign = 'center';
         ctx.fillText(label, x, y + (sublabel ? -3 : 4));
         if (sublabel) {
+            const subSize = Math.max(5, fontSize - 2);
             ctx.fillStyle = 'rgba(255,255,255,0.25)';
-            ctx.font      = '400 7px "IBM Plex Mono", monospace';
-            ctx.fillText(sublabel, x, y + 10);
+            ctx.font      = `400 ${subSize}px "IBM Plex Mono", monospace`;
+            ctx.fillText(sublabel, x, y + fontSize + 2);
         }
     }
 
@@ -292,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     class Packet {
-        constructor(regIndex, regs, cx, cy) {
+        constructor(regIndex, regs, cx, cy, engineR = 44) {
             this.x     = regs[regIndex].x;
             this.y     = regs[regIndex].y;
             this.state = 'TO_ENGINE';
@@ -305,7 +319,8 @@ document.addEventListener('DOMContentLoaded', () => {
             this.remove = false;
             this.orbitAngle  = Math.random() * Math.PI * 2;
             this.orbitRadius = 0;
-            this.orbitTarget = 54; 
+            this.engineR     = engineR;
+            this.orbitTarget = engineR + 10;
             this.orbitStage  = 0;
             this.orbitTick   = 0;
             this.orbitDurations = [20, 22, 20, 18];
@@ -362,8 +377,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (Math.abs(diff) < 0.07) {
         // Aligned — exit from circle edge onto the line
-        this.x     = cx + Math.cos(exitAngle) * 44;
-        this.y     = cy + Math.sin(exitAngle) * 44;
+        this.x     = cx + Math.cos(exitAngle) * this.engineR;
+        this.y     = cy + Math.sin(exitAngle) * this.engineR;
         this.state = 'TO_GOVERNOR';
         this.wait  = 4;
     } else {
@@ -424,7 +439,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const w = lw(), h = lh();
     const L = getLayout(w, h);
     const i = spawnIdx % REG_LABELS.length;
-    packets.push(new Packet(i, L.regs, L.cx, L.cy));
+    packets.push(new Packet(i, L.regs, L.cx, L.cy, L.engineR));
     spawnIdx++;
 }
 
@@ -432,7 +447,7 @@ document.addEventListener('DOMContentLoaded', () => {
     for (let i = 0; i < REG_LABELS.length; i++) {
         const w = lw(), h = lh();
         const L = getLayout(w, h);
-        const p = new Packet(i, L.regs, L.cx, L.cy);
+        const p = new Packet(i, L.regs, L.cx, L.cy, L.engineR);
         p.wait  = i * 14;
         packets.push(p);
     }
@@ -450,7 +465,7 @@ document.addEventListener('visibilitychange', () => {
         for (let i = 0; i < REG_LABELS.length; i++) {
             const w = lw(), h = lh();
             const L = getLayout(w, h);
-            const p = new Packet(i, L.regs, L.cx, L.cy);
+            const p = new Packet(i, L.regs, L.cx, L.cy, L.engineR);
             p.wait = i * 14;
             packets.push(p);
         }
@@ -467,19 +482,41 @@ document.addEventListener('visibilitychange', () => {
     ];
 
     function drawLegend(w, h) {
-        const startX = 14;
-        const startY = h - 14 - STAGES.length * 14;
-        ctx.font      = '400 8px "IBM Plex Mono", monospace';
-        ctx.textAlign = 'left';
-        STAGES.forEach((s, i) => {
-            const y = startY + i * 14;
-            ctx.beginPath();
-            ctx.arc(startX, y, 3, 0, Math.PI * 2);
-            ctx.fillStyle = s.color;
-            ctx.fill();
-            ctx.fillStyle = 'rgba(255,255,255,0.28)';
-            ctx.fillText(s.label, startX + 9, y + 3);
-        });
+        const fSize = 9;
+        const dotR  = 3;
+        ctx.font = `400 ${fSize}px "IBM Plex Mono", monospace`;
+
+        if (w < 480) {
+            // Horizontal row at bottom with gap from diagram
+            const colW = w / STAGES.length;
+            const dotY = h - 24;
+            const lblY = h - 10;
+            ctx.textAlign = 'center';
+            STAGES.forEach((s, i) => {
+                const cx = colW * i + colW / 2;
+                ctx.beginPath();
+                ctx.arc(cx, dotY, dotR, 0, Math.PI * 2);
+                ctx.fillStyle = s.color;
+                ctx.fill();
+                ctx.fillStyle = 'rgba(255,255,255,0.35)';
+                ctx.fillText(s.label, cx, lblY);
+            });
+        } else {
+            // Vertical stack on the left
+            const rowH   = 16;
+            const startX = 14;
+            const startY = h - 10 - STAGES.length * rowH;
+            ctx.textAlign = 'left';
+            STAGES.forEach((s, i) => {
+                const y = startY + i * rowH;
+                ctx.beginPath();
+                ctx.arc(startX, y, dotR, 0, Math.PI * 2);
+                ctx.fillStyle = s.color;
+                ctx.fill();
+                ctx.fillStyle = 'rgba(255,255,255,0.35)';
+                ctx.fillText(s.label, startX + dotR + 6, y + 3);
+            });
+        }
     }
 
     function animate() {
@@ -494,7 +531,7 @@ document.addEventListener('visibilitychange', () => {
         outcomes.forEach(o => drawLine(o.x, o.y, auditX, auditY));
 
         ctx.beginPath();
-        ctx.arc(cx, cy, 54, 0, Math.PI * 2);
+        ctx.arc(cx, cy, L.engineR + 10, 0, Math.PI * 2);
         ctx.strokeStyle = 'rgba(139,92,246,0.1)';
         ctx.stroke();
 
@@ -509,8 +546,8 @@ document.addEventListener('visibilitychange', () => {
             ctx.fillText(r.label, r.x + 9, r.y + 3);
         });
 
-        drawNode(cx, cy, 44, C.engine, 'POLICY ENGINE', 'policy-as-code');
-        drawNode(govX, govY, 34, C.governor, 'GOVERNOR', null);
+        drawNode(cx, cy, L.engineR, C.engine, 'POLICY ENGINE', 'policy-as-code');
+        drawNode(govX, govY, L.govR, C.governor, 'GOVERNOR', null);
         outcomes.forEach(o => drawBox(o.x, o.y, 58, 24, o.color, o.label));
         drawBox(auditX, auditY, 70, 24, C.audit, 'AUDIT LOG');
 

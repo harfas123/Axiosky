@@ -238,6 +238,7 @@ body {
         }
 
         .section-container {
+            border-top: 0px !important;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 var(--space-20);
@@ -924,7 +925,7 @@ body {
 }
 @media (max-width: 768px) {
     .sec-section { padding: 72px 0; }
-    .sec-section-intro h2 { font-size: 30px; }
+    .sec-section-intro h2 { font-size: clamp(32px, 5vw, 48px); }
 }
 
 /* ── Principles grid ──────────────────────────────────────────── */
@@ -1475,9 +1476,99 @@ box-sizing: border-box;
 
 .section-faq h2 {
     font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 44px;
+    font-size: clamp(32px, 5vw, 48px);
     font-weight: 500;
     color: var(--sec-text);
     letter-spacing: -0.5px;
     margin-bottom: 40px;
+}
+
+/* ── 330px — very small phones ───────────────────────────────── */
+@media (max-width: 330px) {
+
+    /* Containers — tighter side padding */
+    .sec-container,
+    .sec-container-wide        { padding: 0 14px !important; }
+
+    /* Hero */
+    .sec-hero                  { padding: 32px 0 48px !important; }
+    .sec-hero-title            { font-size: 28px !important; letter-spacing: -0.5px !important; margin-bottom: 20px !important; }
+    .sec-hero-description      { font-size: 14px !important; margin-bottom: 14px !important; }
+    .sec-hero-detail           { font-size: 12px !important; margin-bottom: 24px !important; }
+    .sec-eyebrow               { font-size: 10px !important; margin-bottom: 16px !important; }
+    .sec-hero-meta             { padding: 18px 16px !important; gap: 16px !important; flex-direction: column !important; }
+    .sec-contact-value         { font-size: 14px !important; }
+    .sec-hero-actions          { flex-direction: column !important; gap: 10px !important; }
+    .sec-btn                   { width: 100% !important; padding: 12px 14px !important; font-size: 13px !important; }
+    .sec-btn-lg                { padding: 12px 20px !important; font-size: 13px !important; }
+
+    /* Sections */
+    .sec-section               { padding: 48px 0 !important; }
+    .sec-section-intro         { margin-bottom: 32px !important; }
+    .sec-section-intro h2      { font-size: 22px !important; margin-bottom: 10px !important; }
+    .sec-section-intro p       { font-size: 13px !important; }
+
+    /* Section headings */
+    .sec-section h3            { font-size: 15px !important; margin-bottom: 10px !important; padding-bottom: 8px !important; }
+    .sec-section h4            { font-size: 10px !important; margin: 14px 0 8px !important; }
+
+    /* Two-col gap */
+    .sec-two-col               { gap: 20px !important; }
+
+    /* Lists */
+    .sec-list li               { font-size: 12px !important; padding-left: 13px !important; margin-bottom: 7px !important; }
+
+    /* Table — the cropped data protection table */
+    .sec-table                 { font-size: 11px !important; }
+    .sec-table th              { padding: 6px 8px !important; font-size: 9px !important; letter-spacing: 0.5px !important; }
+    .sec-table td              { padding: 7px 8px !important; font-size: 11px !important; line-height: 1.4 !important; }
+
+    /* Code blocks */
+    .sec-code-block            { font-size: 10px !important; padding: 12px 14px !important; }
+
+    /* Principles grid */
+    .sec-principle-card        { padding: 20px 16px !important; }
+    .sec-principle-card h3     { font-size: 14px !important; }
+    .sec-principle-card p      { font-size: 12px !important; }
+
+    /* Deploy cards */
+    .sec-deploy-card           { padding: 20px 16px !important; }
+
+    /* FAQ grid */
+    .sec-faq-item              { padding: 20px 16px !important; }
+    .sec-faq-item h3           { font-size: 14px !important; }
+    .sec-faq-item p            { font-size: 12px !important; }
+
+    /* FAQ accordion */
+    .faq-question-text         { font-size: 14px !important; }
+    .faq-answer > div          { font-size: 13px !important; padding-bottom: 24px !important; }
+    .faq-item button           { padding: 16px 0 !important; }
+    .section-faq h2            { font-size: 22px !important; margin-bottom: 24px !important; }
+
+    /* Contact box */
+    .sec-contact-box           { padding: 20px 16px !important; }
+
+    /* CTA */
+    .sec-cta-section           { padding: 48px 0 !important; }
+    .sec-cta-inner h2          { font-size: 22px !important; }
+    .sec-cta-inner > p         { font-size: 13px !important; }
+    .sec-cta-btns              { flex-direction: column !important; gap: 10px !important; }
+    .sec-trust-grid            { padding: 20px 16px !important; gap: 20px !important; }
+    .sec-trust-grid h4         { font-size: 13px !important; }
+    .sec-trust-grid p          { font-size: 12px !important; }
+
+    /* Arch diagram */
+    .arch-layer                { padding: 14px 14px !important; }
+    .arch-layer-title          { font-size: 10px !important; }
+    .arch-bullet               { font-size: 10px !important; }
+    .arch-layer-sub            { font-size: 9px !important; }
+    .arch-connector            { height: 30px !important; }
+
+    /* Note */
+    .sec-note                  { font-size: 11px !important; }
+
+    /* Old-style sections that also appear */
+    section                    { padding: var(--space-20) 14px !important; }
+    .section-title             { font-size: 20px !important; }
+    .section-subtitle          { font-size: 13px !important; }
 }
