@@ -1385,7 +1385,6 @@ box-sizing: border-box;
 /* ============== FAQ SECTION ============== */
 
 .section-faq {
-    background: #050505;
     padding: var(--space-32) var(--space-20);
 }
 
