@@ -371,6 +371,30 @@ document.addEventListener('DOMContentLoaded', () => {
       fail(helpOther, 'Please describe what you need help with.');
     }
 
-    if (hasError) e.preventDefault();
+    // If there are errors, stop everything
+    if (hasError) {
+      e.preventDefault();
+    } else {
+      // THE FIX: Take control of the form submission
+      e.preventDefault(); // Stop Netlify's clunky default routing
+      
+      const form = document.getElementById('pilotForm');
+      const formData = new FormData(form);
+      
+      // Submit the data silently in the background
+      fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(formData).toString()
+      })
+      .then(() => {
+          // Success! Manually force the browser to the exact Thank You page
+          window.location.href = "thank-you.html"; 
+      })
+      .catch((error) => {
+          console.error('Submission failed:', error);
+          alert('There was an issue submitting your request. Please try again.');
+      });
+    }
   });
 });
